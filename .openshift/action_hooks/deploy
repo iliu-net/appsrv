@@ -11,5 +11,5 @@ cp -a "${ttrss_current}"/* "${ttrss_root}"
 chmod -R 777 "${ttrss_root}"/{cache,lock,feed-icons}
 
 if [ -f "${ttrss_config}" ] ; then
-  echo cp "${ttrss_config}" "${ttrss_root}"/config.php
+  cp "${ttrss_config}" "${ttrss_root}"/config.php
 fi
