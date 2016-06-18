@@ -3,12 +3,12 @@
 	// *** Database configuration (important!) ***
 	// *******************************************
 
-	define('DB_TYPE', "pgsql"); // or mysql
-	define('DB_HOST', "localhost");
-	define('DB_USER', "fox");
+	define('DB_TYPE', "mysql"); // or mysql
+	define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
+	define('DB_USER',  getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
 	define('DB_NAME', "fox");
-	define('DB_PASS', "XXXXXX");
-	define('DB_PORT', ''); // usually 5432 for PostgreSQL, 3306 for MySQL
+	define('DB_PASS', getenv("OPENSHIFT_MYSQL_DB_PASSWORD"));
+	define('DB_PORT', getenv("OPENSHIFT_MYSQL_DB_PORT")); // usually 5432 for PostgreSQL, 3306 for MySQL
 
 	define('MYSQL_CHARSET', 'UTF8');
 	// Connection charset for MySQL. If you have a legacy database and/or experience
@@ -18,7 +18,7 @@
 	// *** Basic settings (important!) ***
 	// ***********************************
 
-	define('SELF_URL_PATH', 'http://example.org/tt-rss/');
+	define('SELF_URL_PATH', 'https://apps.0ink.net/tt-rss/');
 	// Full URL of your tt-rss installation. This should be set to the
 	// location of tt-rss directory, e.g. http://example.org/tt-rss/
 	// You need to set this option correctly otherwise several features
@@ -49,7 +49,7 @@
 	// *** Files and directories ***
 	// *****************************
 
-	define('PHP_EXECUTABLE', '/usr/bin/php');
+	define('PHP_EXECUTABLE', '/opt/rh/php54/root/usr/bin/php');
 	// Path to PHP *COMMAND LINE* executable, used for various command-line tt-rss 
 	// programs and update daemon. Do not try to use CGI binary here, it won't work. 
 	// If you see HTTP headers being displayed while running tt-rss scripts, 
