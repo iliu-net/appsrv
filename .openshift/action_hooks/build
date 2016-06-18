@@ -2,9 +2,8 @@
 ttrss_repo="https://tt-rss.org/git/tt-rss.git"
 
 # Deploy Tiny Tiny RSS from Git repo...
-ttrss_dir="${OPENSHIFT_DATA_DIR}ttrss"
+ttrss_dir="${OPENSHIFT_DATA_DIR}tt-rss"
 echo "ttrss_dir=$ttrss_dir"
-[ -d "${ttrss_dir}" ] && exit 0
-echo git clone "${ttrss_repo}" "${ttrss_dir}"
-git clone "${ttrss_repo}" "${ttrss_dir}"
+[ ! -d "${ttrss_dir}" ] && git clone "${ttrss_repo}" "${ttrss_dir}"
+( cd "${ttrss_dir}" && git pull )
 

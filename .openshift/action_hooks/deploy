@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Deploy Tiny Tiny RSS
+ttrss_current="${OPENSHIFT_DATA_DIR}ttrss"
+ttrss_root="${OPENSHIFT_REPO_DIR}php/tt-rss"
+ttrss_config="${OPENSHIFT_REPO_DIR}.openshift/config/tt-rss.php"
+
+[ -d "${ttrss_root}" ] && rm -rf "${ttrss_root}"
+mkdir "${ttrss_root}"
+cp -a "${ttrss_current}/*" "${ttrss_root}"
+
+if [ -f "${ttrss_config}" ] ; then
+  echo cp "${ttrss_config}" "${ttrss_root}"/config.php
+fi
