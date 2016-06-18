@@ -199,4 +199,5 @@
 	// Expected config version. Please update this option in config.php
 	// if necessary (after migrating all new options from this file).
 
+        define('_INSTALLER_IGNORE_CONFIG_CHECK',1);
 	// vim:ft=php
