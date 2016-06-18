@@ -1,0 +1,4 @@
+#!/bin/sh
+ttrss_root="${OPENSHIFT_REPO_DIR}php/tt-rss"
+
+/opt/rh/php54/root/usr/bin/php "${ttrss_root}"/update.php --feeds --quiet
