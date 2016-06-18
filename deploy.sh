@@ -19,7 +19,7 @@ done
 #
 gem install rhc
 AUTH="-l $OPENSHIFT_USER -p $OPENSHIFT_SECRET"
-GITURL="$(rhc app-show wpdev $AUTH| grep '  Git URL: ' | cut -d: -f2-)"
+GITURL="$(rhc app-show $OPENSHIFT_APP $AUTH| grep '  Git URL: ' | cut -d: -f2-)"
 [ -z "$GITURL" ] && exit
 GITHOST="$(echo $GITURL | cut -d'@' -f2 | cut -d/ -f1)"
 [ -z "$GITHOST" ] && exit
