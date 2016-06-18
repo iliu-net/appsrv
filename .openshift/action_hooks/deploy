@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Deploy Tiny Tiny RSS
-ttrss_current="${OPENSHIFT_DATA_DIR}ttrss"
+ttrss_current="${OPENSHIFT_DATA_DIR}tt-rss"
 ttrss_root="${OPENSHIFT_REPO_DIR}php/tt-rss"
 ttrss_config="${OPENSHIFT_REPO_DIR}.openshift/config/tt-rss.php"
 
