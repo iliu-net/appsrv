@@ -1,0 +1,11 @@
+language: php
+php:
+- '5.4'
+env:
+  global:
+  - OPENSHIFT_USER=alejandro_liu@hotmail.com
+  - secure: WbVSji/kv01XOaahLmVYFC9tPHjW65a+pFajHHXUrah7VpeAKZm6PdGFCOTORwxvNbU8YCZWredj5cqxGncjONi+SbS0bGj60kNmfasZDLNM40qQwkdmkSZjlm8KeUH6++QRgexHWsgDrcZscOwYm8Vltegq9Hfjhtj8YngDYSM60FeiJjf7dAqXmGpb5aBeP9k47C+kxILtIxpgYp2GEMl+V9uA+KmY4ajsNFTy5AouBExGoEYUobKgwxa10XNAtSYsnn/mimjAdeG3Vy/3HYcnr626KXmRlVMPwysfu1iB+xSt4yw3N8NxlDoRG6A3CLOV2hr6mSjOzJG1QiNSsHk97E49AY/Jozsd5qVOaAUf64lBXED+Vhihao4e67i0gn3RdqYYsQkFRG7LTv/G5XplE9FoCKh4EA5BxCmCNtn5wh4aN68l2ZQYD/sOz+gWa4VxY/uUqfdjBfhoefeyiclRdYA597QpNs9Qy5yGNsG8LlfSybyf5qgUnwlPa7mzQMJjp7ZbOJDT3dCBOMcGhMlFTYLdS2LwL3mQR5hxiBLKgjisjw3ulodLxWkwhVxAHYLww512IXTmIKNUf+4WhClgtC78as/Eutwi01Jquxcj52mJlsAYjEHTDUJ+Paq5QHp3HRaxqBYIW/3KnpBtD+TcH8TTQYKl3nretskn6/Q=
+script:
+- sh deploy.sh
+diydeploy:
+- deploy master:appsrv
