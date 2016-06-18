@@ -11,7 +11,7 @@
 foreach (glob("*") as $d) {
   if (!is_dir($d)) continue;
   if (is_file("$d/index.php")) {
-     echo "<ul><a href=\"$d\">$d</a></ul>";
+     echo "<li><a href=\"$d\">$d</a></li>";
   }
 }
   ?>
