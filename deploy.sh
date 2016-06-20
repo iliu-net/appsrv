@@ -24,6 +24,7 @@ done
 #
 gem install rhc
 AUTH="-l $OPENSHIFT_USER -p $OPENSHIFT_SECRET"
+rhc app-show $OPENSHIFT_APP $AUTH
 GITURL="$(rhc app-show $OPENSHIFT_APP $AUTH| grep '  Git URL: ' | cut -d: -f2-)"
 [ -z "$GITURL" ] && fatal "MISSING GITURL"
 GITHOST="$(echo $GITURL | cut -d'@' -f2 | cut -d/ -f1)"
