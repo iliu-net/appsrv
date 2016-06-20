@@ -1,5 +1,10 @@
 #!/bin/sh
 #
+fatal() {
+  echo "$@" 1>&2
+  exit 1
+}
+
 set -e
 echo "DIY DEPLOY OPENSHIFT"
 [ -n "$OPENSHIFT_SECRET" ] && echo "SECRET $(expr length "$OPENSHIFT_SECRET")"
@@ -14,15 +19,15 @@ fi
 for k in OPENSHIFT_USER OPENSHIFT_SECRET OPENSHIFT_APP
 do
   eval v="\$$k"
-  [ -z "$v" ] && exit
+  [ -z "$v" ] && fatal "MISSING $k"
 done
 #
 gem install rhc
 AUTH="-l $OPENSHIFT_USER -p $OPENSHIFT_SECRET"
 GITURL="$(rhc app-show $OPENSHIFT_APP $AUTH| grep '  Git URL: ' | cut -d: -f2-)"
-[ -z "$GITURL" ] && exit
+[ -z "$GITURL" ] && fatal "MISSING GITURL"
 GITHOST="$(echo $GITURL | cut -d'@' -f2 | cut -d/ -f1)"
-[ -z "$GITHOST" ] && exit
+[ -z "$GITHOST" ] && fatal "MISSING GITHOST"
 ssh-keyscan $GITHOST > ~/.ssh/known_hosts
 
 yes '' | ssh-keygen -N ''
