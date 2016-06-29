@@ -8,7 +8,7 @@ env:
 script: true
 deploy:
   provider: script
-  script: .openshift/ci-utils/deploy.sh
+  script: sh .openshift/ci-utils/deploy.sh
   on:
     all_branchers: true
 diydeploy:
