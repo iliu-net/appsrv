@@ -1,3 +1,0 @@
-[submodule ".openshift/ci-utils"]
-	path = .openshift/ci-utils
-	url = https://github.com/TortugaLabs/openshift-utils.git
