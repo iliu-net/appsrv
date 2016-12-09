@@ -6,6 +6,9 @@ case "$TRAVIS_BRANCH" in
   master)
     OPENSHIFT_APP="appsrv"
     ;;
+  dev*)
+    OPENSHIFT_APP="appdev"
+    ;;
   *)
     # Disable deployments unless explicitly defined...
     echo "No APP configured"
