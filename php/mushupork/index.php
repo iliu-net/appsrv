@@ -51,10 +51,10 @@ function cfcall($call,array $opts = []) {
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	$txt = curl_exec($ch);
 	curl_close($ch);
-	if ($txt === FALSE) throw new Exception('CURL failure');
+	if ($txt === FALSE) throw new Exception('CURL failure ('.$call.')');
 	$php = json_decode($txt,TRUE);
-	if ($php === NULL) throw new Exception('JSON parsing error');
-	if (empty($php['result']) || !count($php['result'])) throw new Exception('Empty Result Set');
+	if ($php === NULL) throw new Exception('JSON parsing error ('.$call.')');
+	if (empty($php['result']) || !count($php['result'])) throw new Exception('Empty Result Set ('.$call.')');
 	return $php['result'];
 }
 
