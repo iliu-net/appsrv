@@ -131,7 +131,9 @@ try {
 		echo "Record was not changed\n";
 	}
 } catch (Exception $e) {
+	print_r(get_api_key());
 	die("ERROR: ".$e->getMessage()."\n");
+	
 }
 
 exit;
